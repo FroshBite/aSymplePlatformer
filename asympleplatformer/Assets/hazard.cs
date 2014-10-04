@@ -4,11 +4,13 @@ using System.Collections;
 public class hazard : MonoBehaviour {
 	bool isGrabbed = false;
 	bool isFlying = false;
-	
-	new Vector2 startPoint;
-	
+	bool walk;
+	Vector2 startPoint;
+	public int speed;
+	public int gravity;
 
 	void Start () {
+		walk = false;
 		startPoint = transform.position;
 		ResetPosition();
 
@@ -17,6 +19,8 @@ public class hazard : MonoBehaviour {
 	void ResetPosition(){
 		this.transform.position = startPoint;
 		rigidbody2D.velocity = Vector2.zero;
+		walk = false;
+		this.rigidbody2D.gravityScale = 0;
 		isGrabbed = false;
 		isFlying = false;
 	}
@@ -32,7 +36,18 @@ public class hazard : MonoBehaviour {
 	}
 	
 	void FixedUpdate(){
-		
+		if (walk) {
+			float vel = (GameObject.Find ("Player1").transform.position.x)-this.transform.position.x;
+			vel /= Mathf.Abs(vel);
+			if(vel>0){
+				transform.localScale = new Vector3(-15,15,15);
+			}else{
+				transform.localScale = new Vector3(15,15,15);
+			}
+			rigidbody2D.velocity = new Vector2 (speed*vel, 0);
+
+		}
+
 		if(isGrabbed){
 			Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			worldPosition.z = 0;
@@ -43,7 +58,7 @@ public class hazard : MonoBehaviour {
 		if(!isFlying){
 			this.rigidbody2D.gravityScale = 0;
 		} else {
-			this.rigidbody2D.gravityScale = 5;
+			this.rigidbody2D.gravityScale = gravity;
 
 		}
 		
@@ -51,24 +66,29 @@ public class hazard : MonoBehaviour {
 	
 	void OnMouseDown(){
 		isGrabbed = true;
+		this.collider2D.enabled = false;
+		walk = false;
 	}
 	
 	void OnMouseUp(){
 		if(isGrabbed){
 			isGrabbed = false;
 			isFlying = true;
-
+			rigidbody2D.velocity = new Vector2(0,0);
+			this.collider2D.enabled = true;
 		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll){
-		if(coll.gameObject.name == "Player1"){
+			if (this.gameObject.name == "Skeleton") {
+					walk = true;
+			} 
 
-			GameObject.Destroy(coll.gameObject);
+			if (coll.gameObject.name == "Player1") {
 
-		}
-		
-		ResetPosition ();
+				GameObject.Destroy (coll.gameObject);
+				ResetPosition ();
+			}
 	}
 }
 
