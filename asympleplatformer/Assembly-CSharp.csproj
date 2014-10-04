@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Buzzsaw.cs" />
+     <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Player1.cs" />
      <Compile Include="Assets\hazard.cs" />
   </ItemGroup>
