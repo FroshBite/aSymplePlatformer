@@ -8,6 +8,7 @@ public class hazard : MonoBehaviour {
 	Vector2 startPoint;
 	public int speed;
 	public int gravity;
+	public Transform player1;
 
 	void Start () {
 		walk = false;
@@ -37,7 +38,7 @@ public class hazard : MonoBehaviour {
 	
 	void FixedUpdate(){
 		if (walk) {
-			float vel = (GameObject.Find ("Player1").transform.position.x)-this.transform.position.x;
+			float vel = (player1.position.x)-this.transform.position.x;
 			vel /= Mathf.Abs(vel);
 			if(vel>0){
 				transform.localScale = new Vector3(-15,15,15);
@@ -61,17 +62,22 @@ public class hazard : MonoBehaviour {
 			this.rigidbody2D.gravityScale = gravity;
 
 		}
-		
+
 	}
 	
 	void OnMouseDown(){
 		isGrabbed = true;
+		isFlying = false;
 		this.collider2D.enabled = false;
 		walk = false;
 	}
 	
 	void OnMouseUp(){
 		if(isGrabbed){
+			if(Vector2.Distance(player1.position, this.transform.position)<15){
+				ResetPosition();
+			}
+
 			isGrabbed = false;
 			isFlying = true;
 			rigidbody2D.velocity = new Vector2(0,0);
