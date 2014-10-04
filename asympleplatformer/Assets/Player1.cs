@@ -43,7 +43,6 @@ public class Player1 : MonoBehaviour {
 
 		if (Input.GetButton(controls[0])){//if A is pressed
 			left=-1.0f;
-			print (KeyCode.LeftShift);
 		}
 
 		if ((Input.GetButton (controls[2]) && rigidbody2D.velocity.y == 0)){ //if space key is pressed
