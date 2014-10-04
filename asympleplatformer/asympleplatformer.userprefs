@@ -2,12 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player1.cs">
     <Files>
-<<<<<<< HEAD
       <File FileName="..\..\..\..\Documents\GI-Jam-2D-F2014\Assets\scripts\FishScript.cs" Line="69" Column="1" />
-      <File FileName="Assets\Player1.cs" Line="94" Column="3" />
-=======
-      <File FileName="Assets\Player1.cs" Line="13" Column="47" />
->>>>>>> origin/master
+      <File FileName="Assets\Player1.cs" Line="100" Column="3" />
+      <File FileName="Assets\Buzzsaw.cs" Line="18" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

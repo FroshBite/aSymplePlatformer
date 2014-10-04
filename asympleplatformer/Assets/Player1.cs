@@ -92,4 +92,8 @@ public class Player1 : MonoBehaviour {
 	
 	}
 
+	void OnGUI() {
+		GUI.Box (new Rect (375, 500, 350, 75), "Player 2");
+	}
+
 }
