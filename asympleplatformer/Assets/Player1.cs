@@ -9,6 +9,8 @@ public class Player1 : MonoBehaviour {
 	}
 
 	public float gravity=1, jumpScale=1, speed=1,turboFactor=1f;	
+	float startTime;
+	bool shiftPressed=false;
 	new Vector2 startPoint;
 
 
@@ -18,11 +20,12 @@ public class Player1 : MonoBehaviour {
 
 		startPoint = transform.position;
 
+
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float right = 0f, left = 0f, up = 0f, turbo = 1.0f, turboY = 1.0f;
+		float right = 0f, left = 0f, up = 0f, turbo = 1.0f, turboY = 1.0f, timeDif;
 
 		if (Input.GetKey(KeyCode.D)){
 			right=1.0f;
@@ -41,10 +44,26 @@ public class Player1 : MonoBehaviour {
 		}
 
 		if (Input.GetKey (KeyCode.LeftShift)){
-			turbo=turboFactor;
-			turboY=0f;
 
-			
+			if (shiftPressed==false){
+
+				startTime=Time.realtimeSinceStartup;
+				shiftPressed=true;
+
+			}
+
+			timeDif=Time.realtimeSinceStartup-startTime;
+
+			if (timeDif<=0.2){
+				turbo=turboFactor;
+				turboY=0f;
+			}
+		}
+
+		if (Input.GetKeyUp (KeyCode.LeftShift) ){
+
+		
+			shiftPressed=false;
 		}
 
 		if (Input.GetKeyDown (KeyCode.R)){
