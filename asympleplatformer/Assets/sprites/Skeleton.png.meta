@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 69887daaf164b8a489780a7d575dabc2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Skeleton_0
+    21300002: Skeleton_1
+    21300004: Skeleton_2
+    21300006: Skeleton_3
+    21300008: Skeleton_4
+    21300010: Skeleton_5
+    21300012: Skeleton_6
+    21300014: Skeleton_7
+    21300016: Skeleton_8
+    21300018: Skeleton_9
+    21300020: Skeleton_10
+    21300022: Skeleton_11
+    21300024: Skeleton_12
+    21300026: Skeleton_13
+    21300028: Skeleton_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Skeleton_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 469
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 469
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 469
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 469
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_4
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 469
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_5
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 469
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_6
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 469
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 440
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 440
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_9
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 440
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 440
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 440
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_12
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 440
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_13
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 440
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton_14
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 439
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
