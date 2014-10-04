@@ -39,12 +39,21 @@ public class Player1 : MonoBehaviour {
 
 		if (Input.GetButton(controls[1])){ //if D is pressed
 			right=1.0f;
+<<<<<<< HEAD
 			transform.localScale = new Vector3(-20, transform.localScale.y, transform.localScale.x);
+=======
+			transform.localScale = new Vector3(-20,transform.localScale.y,transform.localScale.z);
+>>>>>>> origin/master
 		}
 
 		if (Input.GetButton(controls[0])){//if A is pressed
 			left=-1.0f;
+<<<<<<< HEAD
 			transform.localScale = new Vector3(20, transform.localScale.y, transform.localScale.x);
+=======
+			transform.localScale = new Vector3(20,transform.localScale.y,transform.localScale.z);
+
+>>>>>>> origin/master
 		}
 
 		if ((Input.GetButton (controls[2]) && rigidbody2D.velocity.y == 0)){ //if space key is pressed
