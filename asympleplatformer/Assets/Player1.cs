@@ -76,7 +76,7 @@ public class Player1 : MonoBehaviour {
 			shiftPressed=false;
 		}
 
-		if (Input.GetKeyDown (KeyCode.R)){
+		if (this.transform.position.y<-30){
 			ResetPosition();
 		}
 
