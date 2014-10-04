@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Buzzsaw.cs" />
-     <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\Player1.cs" />
-     <Compile Include="Assets\hazard.cs" />
+     <Compile Include="Assets\scripts\Buzzsaw.cs" />
+     <Compile Include="Assets\scripts\CameraFollow.cs" />
+     <Compile Include="Assets\scripts\Player1.cs" />
+     <Compile Include="Assets\scripts\hazard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
