@@ -8,10 +8,20 @@ public class Player1 : MonoBehaviour {
 		this.rigidbody2D.velocity = Vector2.zero;
 	}
 
-	public float gravity=1, jumpScale=1, speed=1,turboFactor=1f;	
+	void screwUpControls(){
+
+		controls=new string[]{"D","A","Shift","Space"};
+	}
+
+	void  resetControls(){
+		controls=new string[]{"A","D","Space","Shift"};
+	}
+
+	public float gravity=1, jumpScale=1, speed=1,turboFactor=1f;
+	private string[] controls=new string[]{"A","D","Space","Shift"};
 	float startTime;
 	bool shiftPressed=false;
-	new Vector2 startPoint;
+	 Vector2 startPoint;
 
 
 	
@@ -27,23 +37,24 @@ public class Player1 : MonoBehaviour {
 	void FixedUpdate () {
 		float right = 0f, left = 0f, up = 0f, turbo = 1.0f, turboY = 1.0f, timeDif;
 
-		if (Input.GetKey(KeyCode.D)){
+		if (Input.GetButton(controls[1])){ //if D is pressed
 			right=1.0f;
 		}
 
-		if (Input.GetKey(KeyCode.A)){
+		if (Input.GetButton(controls[0])){//if A is pressed
 			left=-1.0f;
+			print (KeyCode.LeftShift);
 		}
 
-		if ((Input.GetKey (KeyCode.Space) && rigidbody2D.velocity.y == 0)){
+		if ((Input.GetButton (controls[2]) && rigidbody2D.velocity.y == 0)){ //if space key is pressed
 			up=6.0f;
 		}
 
-		if ((Input.GetKeyUp (KeyCode.Space) && rigidbody2D.velocity.y != 0)){
+		if ((Input.GetButtonUp (controls[2]) && rigidbody2D.velocity.y != 0)){ //if space key is pressed{
 			up=-2.0f;
 		}
 
-		if (Input.GetKey (KeyCode.LeftShift)){
+		if (Input.GetButton (controls[3])){ // if shift key is pressed
 
 			if (shiftPressed==false){
 
@@ -60,7 +71,7 @@ public class Player1 : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyUp (KeyCode.LeftShift) ){
+		if (Input.GetButtonUp (controls[3])){ //if shift key is pressed
 
 		
 			shiftPressed=false;
@@ -68,6 +79,13 @@ public class Player1 : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
+		}
+
+		if (Input.GetKeyDown (KeyCode.T)){
+			screwUpControls();
+		}
+		if (Input.GetKeyDown (KeyCode.U)){
+			resetControls();
 		}
 
 
