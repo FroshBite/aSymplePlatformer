@@ -1,15 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\hazard.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Player1.cs" Line="47" Column="38" />
-      <File FileName="Assets\hazard.cs" Line="43" Column="25" />
-=======
-      <File FileName="..\..\..\..\Documents\GI-Jam-2D-F2014\Assets\scripts\FishScript.cs" Line="69" Column="1" />
-      <File FileName="Assets\Player1.cs" Line="96" Column="28" />
-      <File FileName="Assets\Buzzsaw.cs" Line="18" Column="32" />
->>>>>>> origin/master
+      <File FileName="Assets\hazard.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Documents\GI-Jam-2D-F2014\Assets\scripts\FishScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Buzzsaw.cs" Line="1" Column="1" />
+      <File FileName="Assets\CameraFollow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
