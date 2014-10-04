@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 478b58bb0b97af84eb3adba15b26117d
+guid: 6502bb24ff9749f4fac5222999d1e99e
 TextureImporter:
   fileIDToRecycleName:
     21300000: buzzsaws_outlined
@@ -28,8 +28,8 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: -3
+  maxTextureSize: 4096
   textureSettings:
     filterMode: 0
     aniso: 1
@@ -53,60 +53,60 @@ TextureImporter:
     - name: buzzsaws_outlined_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 11
-        width: 12
-        height: 5
+        x: 53
+        y: 98
+        width: 162
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: buzzsaws_outlined_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 11
-        width: 12
-        height: 5
+        x: 228
+        y: 98
+        width: 162
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: buzzsaws_outlined_2
       rect:
         serializedVersion: 2
-        x: 27
-        y: 11
-        width: 12
-        height: 5
+        x: 403
+        y: 98
+        width: 161
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: buzzsaws_outlined_3
       rect:
         serializedVersion: 2
-        x: 1
+        x: 53
         y: 4
-        width: 12
-        height: 5
+        width: 162
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: buzzsaws_outlined_4
       rect:
         serializedVersion: 2
-        x: 14
+        x: 228
         y: 4
-        width: 12
-        height: 5
+        width: 162
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: buzzsaws_outlined_5
       rect:
         serializedVersion: 2
-        x: 27
+        x: 403
         y: 4
-        width: 12
-        height: 5
+        width: 161
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
