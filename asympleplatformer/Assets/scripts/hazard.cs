@@ -46,7 +46,6 @@ public class hazard : MonoBehaviour {
 			}else{
 				transform.localScale = new Vector3(30,30,30);
 			}
-			rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
 		
 		
 		}
@@ -57,6 +56,9 @@ public class hazard : MonoBehaviour {
 			//Debug.Log ("World Position: " + worldPosition.ToString());
 			this.transform.position = worldPosition;
 		}
+		if(isFlying)
+			rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
+
 		
 		//if(!isFlying){
 		//	this.rigidbody2D.gravityScale = 0;
