@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player1 : MonoBehaviour {
-
+	bool isAlive = true;
 	void ResetPosition(){
 		gameObject.SetActive(true);
 		transform.position = startPoint;
@@ -82,12 +82,18 @@ public class Player1 : MonoBehaviour {
 		}
 
 		if (this.transform.position.y<-30){
-			this.gameObject.SetActive(false);
+			isAlive = false;
 		}
 
 		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
 		}
+		if (isAlive == false) {
+					Application.LoadLevel (Application.loadedLevel);
+		}
+
+
+
 
 
 		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
@@ -97,8 +103,9 @@ public class Player1 : MonoBehaviour {
 	void OnGUI() {
 		GUI.Box (new Rect (Screen.width/2 - 175, Screen.height - 80, 350, 75), "Player 2");
 		//if (this.gameObject.activeSelf(false)){
-		//	if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Restart")){
-		//		this.gameObject.SetActive (true);}
+		//if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Restart")) {
+			//			Application.LoadLevel (Application.loadedLevel);
+				//}
 		//}
 	}
 
@@ -107,7 +114,8 @@ public class Player1 : MonoBehaviour {
 		
 		
 		if (other.gameObject.tag == "enemy") {
-			this.gameObject.SetActive(false);
+			isAlive=false;
+
 		}
 
 	}
