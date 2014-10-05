@@ -100,14 +100,14 @@ public class Player1 : MonoBehaviour {
 		
 	}
 	
-	void OnGUI() {
+	/*void OnGUI() {
 		GUI.Box (new Rect (Screen.width/2 - 175, Screen.height - 80, 350, 75), "Player 2");
 		//if (this.gameObject.activeSelf(false)){
 		//if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Restart")) {
 		//			Application.LoadLevel (Application.loadedLevel);
 		//}
 		//}
-	}
+	}*/
 	
 	
 	void OnCollisionEnter2D(Collision2D other){
