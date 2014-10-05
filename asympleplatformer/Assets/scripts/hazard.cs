@@ -30,11 +30,11 @@ public class hazard : MonoBehaviour {
 		if (walk) {
 		
 			if(walkVel>0){
-				transform.localScale = new Vector3(-30,30,30);
+				transform.localScale = new Vector3(-35,35,0);
 				rigidbody2D.velocity = new Vector2 (speed,rigidbody2D.velocity.y-gravity);
 			}
 			else{
-				transform.localScale = new Vector3(30,30,30);
+				transform.localScale = new Vector3(35,35,0);
 				rigidbody2D.velocity = new Vector2 (-speed,rigidbody2D.velocity.y-gravity);
 			}
 		}
