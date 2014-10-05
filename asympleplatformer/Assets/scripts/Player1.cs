@@ -22,6 +22,8 @@ public class Player1 : MonoBehaviour {
 	private string[] controls=new string[]{"A","D","Space","Shift"};
 	float startTime;
 	bool shiftPressed=false;
+
+
 	 Vector2 startPoint;
 
 
