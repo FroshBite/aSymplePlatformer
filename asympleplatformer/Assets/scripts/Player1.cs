@@ -90,12 +90,19 @@ public class Player1 : MonoBehaviour {
 		}
 
 
+
 		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
 	
 	}
 
 	void OnGUI() {
-		GUI.Box (new Rect (0, 0, 350, 75), "Player 2");
+		GUI.Box (new Rect (Screen.width/2 - 175, Screen.height - 80, 350, 75), "Player 2");
+		if (GUI.Button(new Rect(Screen.width/2 - 150, Screen.height/2 - 50, 300, 100), "Restart"))
+			this.gameObject.SetActive(true);
+		//if (this.gameObject.activeInHierarchy==true){
+		//	GUI.Button(new Rect(Screen.width/2 - 150, Screen.height/2 - 50, 300, 100), "Restart");
+		//}
+
 	}
 
 	
@@ -105,8 +112,10 @@ public class Player1 : MonoBehaviour {
 		if (other.gameObject.tag == "enemy") {
 			
 			this.gameObject.SetActive(false);
-			
+
+
 		}
 
-}
+	}
+
 }
