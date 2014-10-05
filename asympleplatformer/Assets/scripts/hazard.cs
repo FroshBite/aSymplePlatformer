@@ -18,11 +18,12 @@ public class hazard : MonoBehaviour {
 
 	}
 
+
 	void ResetPosition(){
 		this.transform.position = startPoint;
 		rigidbody2D.velocity = Vector2.zero;
 		walk = false;
-		this.rigidbody2D.gravityScale = 0;
+		//this.rigidbody2D.gravityScale = 0;
 		isGrabbed = false;
 		isFlying = false;
 	}
@@ -36,19 +37,18 @@ public class hazard : MonoBehaviour {
 			ResetPosition();
 		}
 	}
-	
+
 	void FixedUpdate(){
 		if (walk) {
-
+		
 			if(walkVel>0){
 				transform.localScale = new Vector3(-30,30,30);
 			}else{
 				transform.localScale = new Vector3(30,30,30);
 			}
-			this.rigidbody2D.gravityScale = 8;
-			rigidbody2D.velocity = new Vector2 (speed*walkVel,0);
-
-
+			rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
+		
+		
 		}
 
 		if(isGrabbed){
@@ -58,12 +58,12 @@ public class hazard : MonoBehaviour {
 			this.transform.position = worldPosition;
 		}
 		
-		if(!isFlying){
-			this.rigidbody2D.gravityScale = 0;
-		} else {
-			this.rigidbody2D.gravityScale = gravity;
+		//if(!isFlying){
+		//	this.rigidbody2D.gravityScale = 0;
+		//} else {
+		//	this.rigidbody2D.gravityScale = gravity;
 
-		}
+		//}
 
 
 	}
@@ -96,7 +96,7 @@ public class hazard : MonoBehaviour {
 		if (coll.gameObject.name != "Player1") {
 			walk = true;
 		}
-
+			
 	}
 }
 
