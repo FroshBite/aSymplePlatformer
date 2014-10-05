@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class spikeball : MonoBehaviour {
-
+	
 	bool isGrabbed = false, isFlying = false;
 	Vector3 offset, startPoint;
 	public float gravity=1.0f;
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(45, 75,0);
+		startPoint = new Vector3(45, 2,0);
 		offset = player1.transform.position-startPoint;
 		ResetPosition();
 	}
@@ -18,7 +18,7 @@ public class spikeball : MonoBehaviour {
 	void ResetPosition(){
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.gravityScale = 0;
-
+		
 		isGrabbed = false;
 		isFlying = false;
 		
@@ -28,7 +28,7 @@ public class spikeball : MonoBehaviour {
 	}
 	
 	void FixedUpdate(){
-
+		
 		if (!isGrabbed && !isFlying) {
 			transform.position = player1.transform.position- offset;
 			
@@ -41,9 +41,9 @@ public class spikeball : MonoBehaviour {
 		}
 		if (isFlying) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
-			transform.localScale = new Vector3(30,30,0);
+			transform.localScale = new Vector3(35,35,0);
 		}
-
+		
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
@@ -68,7 +68,7 @@ public class spikeball : MonoBehaviour {
 			isGrabbed = false;
 			isFlying = true;
 			this.collider2D.enabled = true;
-
+			
 		}
 	}
 }

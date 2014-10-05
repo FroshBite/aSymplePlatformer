@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Spikes.cs" />
-     <Compile Include="Assets\scripts\Buzzsaw.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
      <Compile Include="Assets\scripts\Player1.cs" />
      <Compile Include="Assets\scripts\hazard.cs" />
