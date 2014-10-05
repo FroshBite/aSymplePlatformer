@@ -39,6 +39,10 @@ public class hazard : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if (!walk && !Physics2D.Raycast(transform.position, (0,-1), rigidbody2D.velocity.y +5 )) {
+			isFlying=false;
+		}
+
 		if (walk) {
 		
 			if(walkVel>0){
@@ -46,6 +50,8 @@ public class hazard : MonoBehaviour {
 			}else{
 				transform.localScale = new Vector3(30,30,30);
 			}
+			rigidbody2D.velocity = new Vector2 (speed*walkVel,rigidbody2D.velocity.y);
+
 		
 		
 		}
@@ -74,6 +80,7 @@ public class hazard : MonoBehaviour {
 		isGrabbed = true;
 		isFlying = false;
 		this.collider2D.enabled = false;
+		rigidbody2D.velocity = Vector2.zero;
 		walk = false;
 	}
 	
