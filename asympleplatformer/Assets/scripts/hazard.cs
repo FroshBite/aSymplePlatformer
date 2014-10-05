@@ -41,9 +41,9 @@ public class hazard : MonoBehaviour {
 			float vel = (player1.position.x)-this.transform.position.x;
 			vel /= Mathf.Abs(vel);
 			if(vel>0){
-				transform.localScale = new Vector3(-15,15,15);
+				transform.localScale = new Vector3(-30,30,30);
 			}else{
-				transform.localScale = new Vector3(15,15,15);
+				transform.localScale = new Vector3(30,30,30);
 			}
 			rigidbody2D.velocity = new Vector2 (speed*vel, 0);
 
@@ -74,8 +74,8 @@ public class hazard : MonoBehaviour {
 	
 	void OnMouseUp(){
 		if(isGrabbed){
-			if(Vector2.Distance(player1.position, this.transform.position)<10){
-				this.transform.position = player1.position + new Vector3(10, 0, 0);
+			if(Vector2.Distance(player1.position, this.transform.position)<5){
+				this.transform.position = player1.position + new Vector3(5, 0, 0);
 			}
 
 			isGrabbed = false;
@@ -92,8 +92,6 @@ public class hazard : MonoBehaviour {
 			} 
 
 			if (coll.gameObject.name == "Player1") {
-
-				GameObject.Destroy (coll.gameObject);
 				ResetPosition ();
 			}
 	}
