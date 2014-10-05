@@ -4,8 +4,9 @@ using System.Collections;
 public class Player1 : MonoBehaviour {
 
 	void ResetPosition(){
-		this.transform.position = startPoint;
-		this.rigidbody2D.velocity = Vector2.zero;
+		gameObject.SetActive(true);
+		transform.position = startPoint;
+		rigidbody2D.velocity = Vector2.zero;
 	}
 
 	void screwUpControls(){
@@ -79,17 +80,16 @@ public class Player1 : MonoBehaviour {
 		}
 
 		if (this.transform.position.y<-30){
+			this.gameObject.SetActive(false);
+		}
+
+		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
 		}
 
-		if (Input.GetKeyDown (KeyCode.T)){
-			screwUpControls();
-		}
-		if (Input.GetKeyDown (KeyCode.U)){
-			resetControls();
-		}
 
-
+		
+		
 		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
 	
 	}
@@ -103,9 +103,7 @@ public class Player1 : MonoBehaviour {
 		
 		
 		if (other.gameObject.tag == "enemy") {
-			
 			this.gameObject.SetActive(false);
-			
 		}
 
 }
