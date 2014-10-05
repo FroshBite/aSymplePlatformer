@@ -12,18 +12,12 @@ public class hazard : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-		<<<<<<< HEAD
+
 			startPoint = new Vector3(55, 2,1);
 		offset = player1.transform.position-startPoint;
-		=======
-			>>>>>>> origin/master
-				walk = false;
+		walk = false;
 		startPoint = transform.position;
 		ResetPosition();
-		<<<<<<< HEAD
-			=======
-				
-				>>>>>>> origin/master
 	}
 	
 	
@@ -34,12 +28,8 @@ public class hazard : MonoBehaviour {
 		//this.rigidbody2D.gravityScale = 0;
 		isGrabbed = false;
 		isFlying = false;
-		<<<<<<< HEAD
-			
-			transform.position = player1.transform.position- offset;
+		transform.position = player1.transform.position- offset;
 		transform.localScale = new Vector3(25,25,0);
-		=======
-			>>>>>>> origin/master
 	}
 	
 	
@@ -58,10 +48,6 @@ public class hazard : MonoBehaviour {
 		}
 		
 		if (walk) {
-			<<<<<<< HEAD
-				=======
-					
-					>>>>>>> origin/master
 		if(walkVel>0){
 				transform.localScale = new Vector3(-30,30,30);
 			}else{
@@ -79,7 +65,6 @@ public class hazard : MonoBehaviour {
 			//Debug.Log ("World Position: " + worldPosition.ToString());
 			this.transform.position = worldPosition;
 		}
-		<<<<<<< HEAD
 		if (isFlying) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
 			transform.localScale = new Vector3(35,35,0);
@@ -89,12 +74,8 @@ public class hazard : MonoBehaviour {
 		if (rigidbody2D.position.y < -500) {
 			ResetPosition ();
 		}
-		
-		=======
-			if(isFlying)
-				rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
-		
-		>>>>>>> origin/master
+		//if(isFlying)
+		//		rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
 			
 			//if(!isFlying){
 			//	this.rigidbody2D.gravityScale = 0;
