@@ -1,4 +1,4 @@
 aSymplePlatformer
 =================
 
-A simple platformed as part of the GI Jam Game Making competition.
+A simple platformer with a twist of asymmetric multiplayer. Made during the Fall GI Jam 2014
