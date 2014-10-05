@@ -45,7 +45,9 @@ public class hazard : MonoBehaviour {
 			}else{
 				transform.localScale = new Vector3(30,30,30);
 			}
-			rigidbody2D.velocity = new Vector2 (speed*walkVel, 0);
+			this.rigidbody2D.gravityScale = 8;
+			rigidbody2D.velocity = new Vector2 (speed*walkVel,0);
+
 
 		}
 
@@ -90,18 +92,11 @@ public class hazard : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll){
-<<<<<<< HEAD
 
 		if (coll.gameObject.name != "Player1") {
 			walk = true;
-
-		}ResetPosition ();
+		}
 			
-=======
-			if (this.gameObject.name == "Skeleton") {
-					walk = true;
-			} 
->>>>>>> origin/master
 	}
 }
 
