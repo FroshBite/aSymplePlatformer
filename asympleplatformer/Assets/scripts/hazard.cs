@@ -9,17 +9,12 @@ public class hazard : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-
-			startPoint = new Vector3(55, 2,1);
-		offset = player1.transform.position-startPoint;
-		walk = false;
-		startPoint = transform.position;
-		ResetPosition();
 		startPoint = new Vector3(55, 75,1);
 		offset = player1.transform.position-startPoint;
 		walk = false;
 		ResetPosition();
 		rigidbody2D.gravityScale = 0;
+		
 	}
 	
 	
@@ -30,34 +25,16 @@ public class hazard : MonoBehaviour {
 		walk = false;
 		isGrabbed = false;
 		isFlying = false;
-		transform.position = player1.transform.position- offset;
-		transform.localScale = new Vector3(25,25,0);
-	}
-	
-	
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.R)){
-			this.isGrabbed = false;
-			this.isFlying = false;
-			this.rigidbody2D.velocity = Vector2.zero;
-			ResetPosition();
-		}
 		
 		transform.position = player1.transform.position- offset;
 		transform.localScale = new Vector3(25,25,0);
 		//this.collider2D.enabled = false;
 		print (startPoint);
+		
 	}
 	
 	void FixedUpdate(){
 		if (walk) {
-		if(walkVel>0){
-				transform.localScale = new Vector3(-30,30,30);
-			}else{
-				transform.localScale = new Vector3(30,30,30);
-			}
-			rigidbody2D.velocity = new Vector2 (speed*walkVel,rigidbody2D.velocity.y);
-
 			
 			if(walkVel>0){
 				transform.localScale = new Vector3(-35,35,0);
@@ -88,16 +65,8 @@ public class hazard : MonoBehaviour {
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
-		//if(isFlying)
-		//		rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
-			
-			//if(!isFlying){
-			//	this.rigidbody2D.gravityScale = 0;
-			//} else {
-			//	this.rigidbody2D.gravityScale = gravity;
-			
-			//}
-
+		
+		
 	}
 	
 	void OnMouseDown(){
