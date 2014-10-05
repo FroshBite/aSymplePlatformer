@@ -74,14 +74,15 @@ public class hazard : MonoBehaviour {
 	
 	void OnMouseUp(){
 		if(isGrabbed){
-			if(Vector2.Distance(player1.position, this.transform.position)<15){
-				ResetPosition();
+			if(Vector2.Distance(player1.position, this.transform.position)<10){
+				this.transform.position = player1.position + new Vector3(10, 0, 0);
 			}
 
 			isGrabbed = false;
 			isFlying = true;
 			rigidbody2D.velocity = new Vector2(0,0);
 			this.collider2D.enabled = true;
+			
 		}
 	}
 	
