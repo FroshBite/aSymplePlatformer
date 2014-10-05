@@ -22,6 +22,8 @@ public class Player1 : MonoBehaviour {
 	private string[] controls=new string[]{"A","D","Space","Shift"};
 	float startTime;
 	bool shiftPressed=false;
+
+
 	 Vector2 startPoint;
 
 
@@ -88,14 +90,16 @@ public class Player1 : MonoBehaviour {
 		}
 
 
-		
-		
 		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
 	
 	}
 
 	void OnGUI() {
-		GUI.Box (new Rect (0, 0, 350, 75), "Player 2");
+		GUI.Box (new Rect (Screen.width/2 - 175, Screen.height - 80, 350, 75), "Player 2");
+		//if (this.gameObject.activeSelf(false)){
+		//	if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Restart")){
+		//		this.gameObject.SetActive (true);}
+		//}
 	}
 
 	
@@ -106,5 +110,6 @@ public class Player1 : MonoBehaviour {
 			this.gameObject.SetActive(false);
 		}
 
-}
+	}
+
 }
