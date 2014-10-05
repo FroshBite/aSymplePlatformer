@@ -35,7 +35,7 @@ public class hazard : MonoBehaviour {
 	
 	void FixedUpdate(){
 		if (walk) {
-			
+			isFlying=false;
 			if(walkVel>0){
 				transform.localScale = new Vector3(-35,35,0);
 				rigidbody2D.velocity = new Vector2 (speed,rigidbody2D.velocity.y-gravity);
