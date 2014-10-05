@@ -90,10 +90,6 @@ public class hazard : MonoBehaviour {
 			if (this.gameObject.name == "Skeleton") {
 					walk = true;
 			} 
-
-			if (coll.gameObject.name == "Player1") {
-				ResetPosition ();
-			}
 	}
 }
 
