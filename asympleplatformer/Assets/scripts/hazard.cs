@@ -5,6 +5,7 @@ public class hazard : MonoBehaviour {
 	bool isGrabbed = false;
 	bool isFlying = false;
 	bool walk;
+	float walkVel;
 	Vector2 startPoint;
 	public int speed;
 	public int gravity;
@@ -38,14 +39,13 @@ public class hazard : MonoBehaviour {
 	
 	void FixedUpdate(){
 		if (walk) {
-			float vel = (player1.position.x)-this.transform.position.x;
-			vel /= Mathf.Abs(vel);
-			if(vel>0){
+
+			if(walkVel>0){
 				transform.localScale = new Vector3(-30,30,30);
 			}else{
 				transform.localScale = new Vector3(30,30,30);
 			}
-			rigidbody2D.velocity = new Vector2 (speed*vel, 0);
+			rigidbody2D.velocity = new Vector2 (speed*walkVel, 0);
 
 		}
 
@@ -62,6 +62,7 @@ public class hazard : MonoBehaviour {
 			this.rigidbody2D.gravityScale = gravity;
 
 		}
+
 
 	}
 	
@@ -82,18 +83,19 @@ public class hazard : MonoBehaviour {
 			isFlying = true;
 			rigidbody2D.velocity = new Vector2(0,0);
 			this.collider2D.enabled = true;
+			walkVel = (player1.position.x)-this.transform.position.x;
+			walkVel /= Mathf.Abs(walkVel);
 			
 		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll){
-			if (this.gameObject.name == "Skeleton") {
-					walk = true;
-			} 
 
-			if (coll.gameObject.name == "Player1") {
-				ResetPosition ();
-			}
+		if (coll.gameObject.name != "Player1") {
+			walk = true;
+
+		}ResetPosition ();
+			
 	}
 }
 
