@@ -98,4 +98,15 @@ public class Player1 : MonoBehaviour {
 		GUI.Box (new Rect (375, 500, 350, 75), "Player 2");
 	}
 
+	
+	void OnCollisionEnter2D(Collision2D other){
+		
+		
+		if (other.gameObject.tag == "enemy") {
+			
+			this.gameObject.SetActive(false);
+			
+		}
+
+}
 }
