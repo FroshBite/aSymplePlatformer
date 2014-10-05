@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Buzzsaw : MonoBehaviour {
 
+	public GameObject player;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,10 +14,6 @@ public class Buzzsaw : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.name == "Player1") {
-			GameObject.Destroy(coll.gameObject);
-		}
-	}
 	
 }
+
