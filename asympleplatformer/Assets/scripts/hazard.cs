@@ -92,11 +92,20 @@ public class hazard : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll){
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 		if (coll.gameObject.name != "Player1") {
 			walk = true;
 		}
 			
+<<<<<<< HEAD
+=======
+			if (this.gameObject.name == "Skeleton") {
+					walk = true;
+			}
+>>>>>>> origin/master
 	}
 }
 
