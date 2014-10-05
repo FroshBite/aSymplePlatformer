@@ -1,52 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hazard : MonoBehaviour {
-	bool isGrabbed = false, isFlying = false, walk =false;
+public class spikeball : MonoBehaviour {
+
+	bool isGrabbed = false, isFlying = false;
 	Vector3 offset, startPoint;
-	float walkVel;
-	public float speed=1.0f, gravity=1.0f;
+	public float gravity=1.0f;
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(55, 75,1);
+		startPoint = new Vector3(45, 75,0);
 		offset = player1.transform.position-startPoint;
-		walk = false;
 		ResetPosition();
-		rigidbody2D.gravityScale = 0;
-		
 	}
 	
 	
 	void ResetPosition(){
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.gravityScale = 0;
-		
-		walk = false;
+
 		isGrabbed = false;
 		isFlying = false;
 		
 		transform.position = player1.transform.position- offset;
 		transform.localScale = new Vector3(25,25,0);
-		//this.collider2D.enabled = false;
-		print (startPoint);
 		
 	}
 	
 	void FixedUpdate(){
-		if (walk) {
-			
-			if(walkVel>0){
-				transform.localScale = new Vector3(-35,35,0);
-				rigidbody2D.velocity = new Vector2 (speed,rigidbody2D.velocity.y-gravity);
-			}
-			else{
-				transform.localScale = new Vector3(35,35,0);
-				rigidbody2D.velocity = new Vector2 (-speed,rigidbody2D.velocity.y-gravity);
-			}
-		}
-		
-		if (!walk && !isGrabbed && !isFlying) {
+
+		if (!isGrabbed && !isFlying) {
 			transform.position = player1.transform.position- offset;
 			
 		}
@@ -57,11 +40,10 @@ public class hazard : MonoBehaviour {
 			this.transform.position = worldPosition;
 		}
 		if (isFlying) {
-			rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y - gravity);
-			transform.localScale = new Vector3(35,35,0);
+			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
+			transform.localScale = new Vector3(30,30,0);
 		}
-		
-		
+
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
@@ -72,10 +54,8 @@ public class hazard : MonoBehaviour {
 	void OnMouseDown(){
 		isGrabbed = true;
 		isFlying = false;
-		walk = false;
 		this.collider2D.enabled = false;
 		transform.localScale = new Vector3(25,25,0);
-		
 	}
 	
 	void OnMouseUp(){
@@ -88,18 +68,7 @@ public class hazard : MonoBehaviour {
 			isGrabbed = false;
 			isFlying = true;
 			this.collider2D.enabled = true;
-			walkVel = (player1.position.x)-this.transform.position.x;
-			
-			
+
 		}
-	}
-	
-	void OnCollisionEnter2D(Collision2D coll){
-		
-		if (coll.gameObject.name != "Player1") {
-			walk = true;
-			isFlying=false;
-		}
-		
 	}
 }
