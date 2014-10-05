@@ -3,14 +3,15 @@ using System.Collections;
 
 public class hazard : MonoBehaviour {
 	bool isGrabbed = false, isFlying = false, walk =false;
+	Vector3 offset, startPoint;
 	float walkVel;
-	Vector2 startPoint;
 	public float speed=1.0f, gravity=1.0f;
 	public Transform player1;
 
 	void Start () {
+		startPoint = new Vector3(50, 2,1);
+		offset = player1.transform.position-startPoint;
 		walk = false;
-		startPoint = transform.position;
 		ResetPosition();
 		rigidbody2D.gravityScale = 0;
 
@@ -20,10 +21,16 @@ public class hazard : MonoBehaviour {
 	void ResetPosition(){
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.gravityScale = 0;
+
 		walk = false;
 		isGrabbed = false;
 		isFlying = false;
-		this.transform.position = startPoint;
+
+		transform.position = player1.transform.position- offset;
+		transform.localScale = new Vector3(25,25,0);
+		//this.collider2D.enabled = false;
+		print (startPoint);
+
 	}
 
 	void FixedUpdate(){
@@ -39,17 +46,27 @@ public class hazard : MonoBehaviour {
 			}
 		}
 
+		if (!walk && !isGrabbed && !isFlying) {
+			transform.position = player1.transform.position- offset;
+
+				}
+
 		if(isGrabbed){ //moves the skeleton along with the mouse
 			Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			worldPosition.z = 0;
 			this.transform.position = worldPosition;
 		}
-		if(isFlying)
-			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x,rigidbody2D.velocity.y-gravity);
+		if (isFlying) {
+			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
+			transform.localScale = new Vector3(35,35,0);
+		}
+
 
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
+
+
 	}
 	
 	void OnMouseDown(){
@@ -57,6 +74,8 @@ public class hazard : MonoBehaviour {
 		isFlying = false;
 		walk = false;
 		this.collider2D.enabled = false;
+		transform.localScale = new Vector3(25,25,0);
+
 	}
 	
 	void OnMouseUp(){
@@ -70,6 +89,8 @@ public class hazard : MonoBehaviour {
 			isFlying = true;
 			this.collider2D.enabled = true;
 			walkVel = (player1.position.x)-this.transform.position.x;
+
+
 		}
 	}
 	
