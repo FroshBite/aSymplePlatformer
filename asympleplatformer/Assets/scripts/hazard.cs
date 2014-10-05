@@ -97,6 +97,7 @@ public class hazard : MonoBehaviour {
 			walk = true;
 		}
 
+
 	}
 }
 
