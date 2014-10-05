@@ -2,119 +2,84 @@
 using System.Collections;
 
 public class hazard : MonoBehaviour {
-	bool isGrabbed = false;
-	bool isFlying = false;
-	bool walk;
+	bool isGrabbed = false, isFlying = false, walk =false;
+	Vector3 offset, startPoint;
 	float walkVel;
-	Vector2 startPoint;
-	public int speed;
-	public int gravity;
+	public float speed=1.0f, gravity=1.0f;
 	public Transform player1;
 	
 	void Start () {
-		<<<<<<< HEAD
-			startPoint = new Vector3(55, 2,1);
+		startPoint = new Vector3(55, 75,1);
 		offset = player1.transform.position-startPoint;
-		=======
-			>>>>>>> origin/master
-				walk = false;
-		startPoint = transform.position;
+		walk = false;
 		ResetPosition();
-		<<<<<<< HEAD
-			=======
-				
-				>>>>>>> origin/master
+		rigidbody2D.gravityScale = 0;
+		
 	}
 	
 	
 	void ResetPosition(){
-		this.transform.position = startPoint;
 		rigidbody2D.velocity = Vector2.zero;
+		rigidbody2D.gravityScale = 0;
+		
 		walk = false;
-		//this.rigidbody2D.gravityScale = 0;
 		isGrabbed = false;
 		isFlying = false;
-		<<<<<<< HEAD
-			
-			transform.position = player1.transform.position- offset;
+		
+		transform.position = player1.transform.position- offset;
 		transform.localScale = new Vector3(25,25,0);
-		=======
-			>>>>>>> origin/master
-	}
-	
-	
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.R)){
-			this.isGrabbed = false;
-			this.isFlying = false;
-			this.rigidbody2D.velocity = Vector2.zero;
-			ResetPosition();
-		}
+		//this.collider2D.enabled = false;
+		print (startPoint);
+		
 	}
 	
 	void FixedUpdate(){
-		if (!walk && !Physics2D.Raycast(transform.position, (0,-1), rigidbody2D.velocity.y +5 )) {
-			isFlying=false;
-		}
-		
 		if (walk) {
-			<<<<<<< HEAD
-				=======
-					
-					>>>>>>> origin/master
-		if(walkVel>0){
-				transform.localScale = new Vector3(-30,30,30);
-			}else{
-				transform.localScale = new Vector3(30,30,30);
+			
+			if(walkVel>0){
+				transform.localScale = new Vector3(-35,35,0);
+				rigidbody2D.velocity = new Vector2 (speed,rigidbody2D.velocity.y-gravity);
 			}
-			rigidbody2D.velocity = new Vector2 (speed*walkVel,rigidbody2D.velocity.y);
-			
-			
+			else{
+				transform.localScale = new Vector3(35,35,0);
+				rigidbody2D.velocity = new Vector2 (-speed,rigidbody2D.velocity.y-gravity);
+			}
+		}
+		
+		if (!walk && !isGrabbed && !isFlying) {
+			transform.position = player1.transform.position- offset;
 			
 		}
 		
-		if(isGrabbed){
+		if(isGrabbed){ //moves the skeleton along with the mouse
 			Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			worldPosition.z = 0;
-			//Debug.Log ("World Position: " + worldPosition.ToString());
 			this.transform.position = worldPosition;
 		}
-		<<<<<<< HEAD
 		if (isFlying) {
-			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
+			rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y - gravity);
 			transform.localScale = new Vector3(35,35,0);
 		}
 		
 		
-		if (rigidbody2D.position.y < -500) {
+		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
 		
-		=======
-			if(isFlying)
-				rigidbody2D.velocity = new Vector2 (speed*walkVel,-gravity);
 		
-		>>>>>>> origin/master
-			
-			//if(!isFlying){
-			//	this.rigidbody2D.gravityScale = 0;
-			//} else {
-			//	this.rigidbody2D.gravityScale = gravity;
-			
-			//}
-			
-			
 	}
 	
 	void OnMouseDown(){
 		isGrabbed = true;
 		isFlying = false;
-		this.collider2D.enabled = false;
-		rigidbody2D.velocity = Vector2.zero;
 		walk = false;
+		this.collider2D.enabled = false;
+		transform.localScale = new Vector3(25,25,0);
+		
 	}
 	
 	void OnMouseUp(){
+		
 		if(isGrabbed){
 			if(Vector2.Distance(player1.position, this.transform.position)<5){
 				this.transform.position = player1.position + new Vector3(5, 0, 0);
@@ -122,10 +87,9 @@ public class hazard : MonoBehaviour {
 			
 			isGrabbed = false;
 			isFlying = true;
-			rigidbody2D.velocity = new Vector2(0,0);
 			this.collider2D.enabled = true;
 			walkVel = (player1.position.x)-this.transform.position.x;
-			walkVel /= Mathf.Abs(walkVel);
+			
 			
 		}
 	}
@@ -139,4 +103,3 @@ public class hazard : MonoBehaviour {
 		
 	}
 }
-
