@@ -28,8 +28,6 @@ public class hazard : MonoBehaviour {
 		
 		transform.position = player1.transform.position- offset;
 		transform.localScale = new Vector3(25,25,0);
-		//this.collider2D.enabled = false;
-		print (startPoint);
 		
 	}
 	

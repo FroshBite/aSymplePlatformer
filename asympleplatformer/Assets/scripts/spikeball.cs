@@ -9,7 +9,7 @@ public class spikeball : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(45, 2,0);
+		startPoint = new Vector3(45,75,0);
 		offset = player1.transform.position-startPoint;
 		ResetPosition();
 	}
@@ -41,7 +41,7 @@ public class spikeball : MonoBehaviour {
 		}
 		if (isFlying) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y - gravity);
-			transform.localScale = new Vector3(35,35,0);
+			transform.localScale = new Vector3(30,30,0);
 		}
 		
 		if (rigidbody2D.position.y < -50) {

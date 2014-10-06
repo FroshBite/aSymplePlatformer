@@ -2,13 +2,35 @@
 using System.Collections;
 
 public class Player1 : MonoBehaviour {
-	bool isAlive = true;
+	bool isAlive = true, win=false;
 	void ResetPosition(){
 		gameObject.SetActive(true);
 		transform.position = startPoint;
 		rigidbody2D.velocity = Vector2.zero;
 	}
-	
+
+	void OnGUI() {
+		if (!isAlive) {
+			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 2 Wins!");
+
+			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
+			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+				Application.LoadLevel(Application.loadedLevel);
+			}
+			renderer.enabled = false;
+		}
+		if (win) {
+			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 1 Wins!");
+			
+			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
+			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+				Application.LoadLevel(Application.loadedLevel);
+			}
+			renderer.enabled = false;
+
+		}
+	}
+
 	void screwUpControls(){
 		
 		controls=new string[]{"D","A","Shift","Space"};
@@ -32,8 +54,6 @@ public class Player1 : MonoBehaviour {
 	void Start () {
 		
 		startPoint = transform.position;
-		
-		
 	}
 	
 	// Update is called once per frame
@@ -83,40 +103,40 @@ public class Player1 : MonoBehaviour {
 		
 		if (this.transform.position.y<-30){
 			isAlive = false;
+
 		}
 		
 		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
 		}
 		if (isAlive == false) {
-			Application.LoadLevel (Application.loadedLevel);
+			print ("Player 1 Died!");
+			//Application.LoadLevel (Application.loadedLevel);
 		}
-		
-		
-		
-		
-		
+
+
 		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
 		
 	}
-	
-	/*void OnGUI() {
-		GUI.Box (new Rect (Screen.width/2 - 175, Screen.height - 80, 350, 75), "Player 2");
-		//if (this.gameObject.activeSelf(false)){
-		//if (GUI.Button (new Rect (Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Restart")) {
-		//			Application.LoadLevel (Application.loadedLevel);
-		//}
-		//}
-	}*/
-	
-	
+
 	void OnCollisionEnter2D(Collision2D other){
 		
 		
 		if (other.gameObject.tag == "enemy") {
 			isAlive=false;
+
+		}
+
+		if (other.gameObject.tag == "controlfreak") {
+			screwUpControls();
+			print ("Control Freak Activated!");
 			
 		}
+
+		if (other.gameObject.tag == "finish") {
+			print ("Congradulations, Player 1 won!");
+			win=true;
+			}
 		
 	}
 	

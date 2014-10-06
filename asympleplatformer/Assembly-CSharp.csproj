@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Spikes.cs" />
      <Compile Include="Assets\scripts\Buzzsaw.cs" />
      <Compile Include="Assets\scripts\CameraFollow.cs" />
      <Compile Include="Assets\scripts\Player1.cs" />
+     <Compile Include="Assets\scripts\controlfreak.cs" />
      <Compile Include="Assets\scripts\hazard.cs" />
+     <Compile Include="Assets\scripts\hazard2.cs" />
+     <Compile Include="Assets\scripts\hazard3.cs" />
      <Compile Include="Assets\scripts\spikeball.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
