@@ -8,6 +8,8 @@
 /*.unityproj
 /*.sln
 /*.suo
+*.apk
+*.sln.DotSettings.user
 /*.user
 /*.userprefs
 /*.pidb
