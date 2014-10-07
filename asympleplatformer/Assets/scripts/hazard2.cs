@@ -64,6 +64,10 @@ public class hazard2 : MonoBehaviour {
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.R)){
+			ResetPosition();
+		}
 		
 		
 	}

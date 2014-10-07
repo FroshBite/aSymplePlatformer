@@ -48,7 +48,9 @@ public class controlfreak : MonoBehaviour {
 			//ResetPosition ();
 		}
 		
-		
+		if (Input.GetKeyDown (KeyCode.R)){
+			ResetPosition();
+		}
 	}
 	
 	void OnMouseDown(){

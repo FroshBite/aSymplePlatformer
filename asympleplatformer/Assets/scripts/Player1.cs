@@ -11,19 +11,19 @@ public class Player1 : MonoBehaviour {
 
 	void OnGUI() {
 		if (!isAlive) {
-			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 2 Wins!");
+			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 2 Wins!");
 
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Restart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;
 		}
 		if (win) {
-			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 1 Wins!");
+			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 1 Wins!");
 			
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Restart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;
@@ -103,11 +103,15 @@ public class Player1 : MonoBehaviour {
 		
 		if (this.transform.position.y<-30){
 			isAlive = false;
+			win = false;
 
 		}
 		
 		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
+			isAlive = true;
+			renderer.enabled = true;
+			win = false;
 		}
 		if (isAlive == false) {
 			print ("Player 1 Died!");
