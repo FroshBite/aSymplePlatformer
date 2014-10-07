@@ -9,20 +9,22 @@ public class spikeball : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(45,75,0);
+		startPoint = new Vector3(60,75,0);
 		offset = player1.transform.position-startPoint;
 		ResetPosition();
 	}
 	
 	
 	void ResetPosition(){
-		rigidbody2D.velocity = Vector2.zero;
+		rigidbody2D.velocity = Vector3.zero;
+		rigidbody2D.angularVelocity = 0;
 		rigidbody2D.gravityScale = 0;
 		
 		isGrabbed = false;
 		isFlying = false;
 		
 		transform.position = player1.transform.position- offset;
+		transform.rotation = Quaternion.identity;
 		transform.localScale = new Vector3(25,25,0);
 		
 	}

@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 2 Wins!");
 
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;
@@ -23,7 +23,7 @@ public class Player1 : MonoBehaviour {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 1 Wins!");
 			
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;

@@ -9,7 +9,7 @@ public class hazard2 : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(60, 75,1);
+		startPoint = new Vector3(85, 75,0);
 		offset = player1.transform.position-startPoint;
 		walk = false;
 		ResetPosition();
