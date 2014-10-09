@@ -9,7 +9,7 @@ public class hazard3 : MonoBehaviour {
 	public Transform player1;
 	
 	void Start () {
-		startPoint = new Vector3(65, 75,1);
+		startPoint = new Vector3(87, 75,0);
 		offset = player1.transform.position-startPoint;
 		walk = false;
 		ResetPosition();
@@ -21,7 +21,7 @@ public class hazard3 : MonoBehaviour {
 	void ResetPosition(){
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.gravityScale = 0;
-		
+
 		walk = false;
 		isGrabbed = false;
 		isFlying = false;
@@ -63,6 +63,10 @@ public class hazard3 : MonoBehaviour {
 		
 		if (rigidbody2D.position.y < -50) {
 			ResetPosition ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.R)){
+			ResetPosition();
 		}
 		
 		

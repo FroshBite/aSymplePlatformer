@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player1 : MonoBehaviour {
-	bool isAlive = true, win=false;
+	bool isAlive = true, win=false, paused=false;
 	void ResetPosition(){
 		gameObject.SetActive(true);
 		transform.position = startPoint;
@@ -10,25 +10,45 @@ public class Player1 : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if (!isAlive) {
-			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 2 Wins!");
+		if (!isAlive && paused == false) {
+			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 2 Wins!");
 
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;
 		}
-		if (win) {
-			GUI.Box (new Rect (450, 20, Screen.width/2, 100), "Player 1 Wins!");
+
+		if (win && paused == false) {
+			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 1 Wins!");
 			
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(900,50,80,40), "Restart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			renderer.enabled = false;
 
 		}
+
+		if (paused == true) {
+			Time.timeScale = 0;
+			GUI.Box (new Rect (Screen.width/2 - 150, Screen.height/2 - 225, 300, 450), "Paused");
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 170, 280, 100), "Resume")){
+				Time.timeScale = 1;
+				paused = false;
+			}
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 45, 280, 100), "Main Menu")){
+				Time.timeScale = 1;
+				paused = false;
+				Application.LoadLevel(0);
+			}
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 + 80, 280, 100), "Quit Game")){
+				Application.Quit();
+			}
+
+		}
+
 	}
 
 	void screwUpControls(){
@@ -103,12 +123,22 @@ public class Player1 : MonoBehaviour {
 		
 		if (this.transform.position.y<-30){
 			isAlive = false;
+			win = false;
 
 		}
 		
 		if (Input.GetKeyDown (KeyCode.R)){
 			ResetPosition();
+			isAlive = true;
+			renderer.enabled = true;
+			win = false;
 		}
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			paused = true;
+		}
+
+
 		if (isAlive == false) {
 			print ("Player 1 Died!");
 			//Application.LoadLevel (Application.loadedLevel);
