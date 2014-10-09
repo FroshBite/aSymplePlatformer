@@ -8,6 +8,9 @@ Controls
 =======
 
 A or Left Arrow = Left
+
 D or Right Arrow = Right
+
 Space or Up Arrow = Jump / Climb (hold)
+
 Left Shift = Dash (air)
