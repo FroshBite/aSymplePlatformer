@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player1 : MonoBehaviour {
-	bool isAlive = true, win=false;
+	bool isAlive = true, win=false, paused=false;
 	void ResetPosition(){
 		gameObject.SetActive(true);
 		transform.position = startPoint;
@@ -10,7 +10,7 @@ public class Player1 : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if (!isAlive) {
+		if (!isAlive && paused == false) {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 2 Wins!");
 
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
@@ -19,7 +19,8 @@ public class Player1 : MonoBehaviour {
 			}
 			renderer.enabled = false;
 		}
-		if (win) {
+
+		if (win && paused == false) {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 1 Wins!");
 			
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
@@ -29,6 +30,25 @@ public class Player1 : MonoBehaviour {
 			renderer.enabled = false;
 
 		}
+
+		if (paused == true) {
+			Time.timeScale = 0;
+			GUI.Box (new Rect (Screen.width/2 - 150, Screen.height/2 - 225, 300, 450), "Paused");
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 170, 280, 100), "Resume")){
+				Time.timeScale = 1;
+				paused = false;
+			}
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 45, 280, 100), "Main Menu")){
+				Time.timeScale = 1;
+				paused = false;
+				Application.LoadLevel(0);
+			}
+			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 + 80, 280, 100), "Quit Game")){
+				Application.Quit();
+			}
+
+		}
+
 	}
 
 	void screwUpControls(){
@@ -113,6 +133,12 @@ public class Player1 : MonoBehaviour {
 			renderer.enabled = true;
 			win = false;
 		}
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			paused = true;
+		}
+
+
 		if (isAlive == false) {
 			print ("Player 1 Died!");
 			//Application.LoadLevel (Application.loadedLevel);
