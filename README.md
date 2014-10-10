@@ -13,4 +13,6 @@ D or Right Arrow = Right
 
 Space or Up Arrow = Jump / Climb (hold)
 
-Left Shift = Dash (air)
+Left Shift = Float (air)
+
+Left Shift + Left/Right = Dash (air)
