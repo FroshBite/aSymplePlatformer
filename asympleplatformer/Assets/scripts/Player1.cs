@@ -14,8 +14,14 @@ public class Player1 : MonoBehaviour {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 2 Wins!");
 
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 185,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Main Menu")) {
+				Application.LoadLevel(0);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 + 105,Screen.height/2 - 10,80,40), "Quit")) {
+				Application.Quit ();
 			}
 			renderer.enabled = false;
 		}
@@ -24,8 +30,14 @@ public class Player1 : MonoBehaviour {
 			GUI.Box (new Rect (Screen.width/2 - 250, Screen.height/2 - 50, 500, 100), "Player 1 Wins!");
 			
 			// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "(R)estart")) {
+			if(GUI.Button(new Rect(Screen.width/2 - 185,Screen.height/2 - 10,80,40), "(R)estart")) {
 				Application.LoadLevel(Application.loadedLevel);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 - 40,Screen.height/2 - 10,80,40), "Main Menu")) {
+				Application.LoadLevel(0);
+			}
+			if(GUI.Button(new Rect(Screen.width/2 + 105,Screen.height/2 - 10,80,40), "Quit")) {
+				Application.Quit ();
 			}
 			renderer.enabled = false;
 
@@ -33,17 +45,22 @@ public class Player1 : MonoBehaviour {
 
 		if (paused == true) {
 			Time.timeScale = 0;
-			GUI.Box (new Rect (Screen.width/2 - 150, Screen.height/2 - 225, 300, 450), "Paused");
-			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 170, 280, 100), "Resume")){
+			GUI.Box (new Rect (Screen.width/2 - 125, Screen.height/2 - 225, 250, 450), "Paused");
+			if(GUI.Button(new Rect (Screen.width/2 - 115, Screen.height/2 - 170, 230, 80), "Resume")){
 				Time.timeScale = 1;
 				paused = false;
 			}
-			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 - 45, 280, 100), "Main Menu")){
+			if(GUI.Button(new Rect (Screen.width/2 - 115, Screen.height/2 - 75, 230, 80), "Restart")){
+				Application.LoadLevel(1);
+				Time.timeScale = 1;
+				paused = false;
+			}
+			if(GUI.Button(new Rect (Screen.width/2 - 115, Screen.height/2 + 20, 230, 80), "Main Menu")){
 				Time.timeScale = 1;
 				paused = false;
 				Application.LoadLevel(0);
 			}
-			if(GUI.Button(new Rect (Screen.width/2 - 140, Screen.height/2 + 80, 280, 100), "Quit Game")){
+			if(GUI.Button(new Rect (Screen.width/2 - 115, Screen.height/2 + 135, 230, 80), "Quit Game")){
 				Application.Quit();
 			}
 
