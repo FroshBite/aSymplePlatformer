@@ -135,13 +135,8 @@ public class Player1 : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			paused = true;
-		}
-
-
-		if (isAlive == false) {
-			print ("Player 1 Died!");
-			//Application.LoadLevel (Application.loadedLevel);
+			//TO-DO: MAKE THIS A TOGGLE
+				paused = true;
 		}
 
 
@@ -154,6 +149,7 @@ public class Player1 : MonoBehaviour {
 		
 		if (other.gameObject.tag == "enemy") {
 			isAlive=false;
+			print ("Player 1 Died!");
 
 		}
 
@@ -164,7 +160,7 @@ public class Player1 : MonoBehaviour {
 		}
 
 		if (other.gameObject.tag == "finish") {
-			print ("Congradulations, Player 1 won!");
+			print ("Congratulations, Player 1 won!");
 			win=true;
 			}
 		
