@@ -2,7 +2,17 @@
 using System.Collections;
 
 public class Player1 : MonoBehaviour {
-	bool isAlive = true, win=false, paused=false;
+
+
+	public float gravity=1, jumpScale=1, speed=1,turboFactor=1f, controlFreakDuration=5f;
+
+	private string[] controls=new string[]{"A","D","Space","Shift"};
+	bool isAlive = true, win=false, paused=false, shiftPressed=false;
+	float startTime; //used for the shift boost functionality
+	float controlFreakStartTime=10e8f; //used for effect time of the control freak, can also be used for other effects
+	Vector2 startPoint;
+
+
 	void ResetPosition(){
 		gameObject.SetActive(true);
 		transform.position = startPoint;
@@ -70,23 +80,13 @@ public class Player1 : MonoBehaviour {
 
 	void screwUpControls(){
 		
-		controls=new string[]{"D","A","Shift","Space"};
+		controls=new string[]{"D","A","Space","Shift"};
 	}
 	
 	void  resetControls(){
 		controls=new string[]{"A","D","Space","Shift"};
 	}
-	
-	public float gravity=1, jumpScale=1, speed=1,turboFactor=1f;
-	private string[] controls=new string[]{"A","D","Space","Shift"};
-	float startTime;
-	bool shiftPressed=false;
-	
-	
-	Vector2 startPoint;
-	
-	
-	
+
 	// Use this for initialization
 	void Start () {
 		
@@ -133,32 +133,39 @@ public class Player1 : MonoBehaviour {
 		}
 		
 		if (Input.GetButtonUp (controls[3])){ //if shift key is pressed
-			
-			
+
 			shiftPressed=false;
 		}
 		
-		if (this.transform.position.y<-30){
+		if (transform.position.y<-100){
 			isAlive = false;
 			win = false;
 
 		}
-		
-		if (Input.GetKeyDown (KeyCode.R)){
-			ResetPosition();
-			isAlive = true;
-			renderer.enabled = true;
-			win = false;
-		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			//TO-DO: MAKE THIS A TOGGLE
-				paused = true;
+			paused=true;
 		}
 
 
-		rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
-		
+		if (isAlive){
+			//moves the player according to the controls
+			rigidbody2D.velocity = new Vector2 (right*speed*turbo + left * speed*turbo, turboY* (rigidbody2D.velocity.y - gravity  + up * jumpScale));
+		}
+
+		if (!isAlive){
+			rigidbody2D.velocity = Vector2.zero;
+		}
+
+		if (win){
+			rigidbody2D.velocity = Vector2.zero;
+		}
+
+		if ((Time.time-controlFreakStartTime)>controlFreakDuration){
+			resetControls();
+			controlFreakStartTime=10e8f; //resets the timer
+		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
@@ -172,8 +179,7 @@ public class Player1 : MonoBehaviour {
 
 		if (other.gameObject.tag == "controlfreak") {
 			screwUpControls();
-			print ("Control Freak Activated!");
-			
+			controlFreakStartTime=Time.time;
 		}
 
 		if (other.gameObject.tag == "finish") {
