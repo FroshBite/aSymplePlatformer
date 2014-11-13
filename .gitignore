@@ -18,3 +18,4 @@ sysinfo.txt
 *.sln
 *.userprefs
 *.csproj
+*.meta
