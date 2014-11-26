@@ -33,6 +33,8 @@ public class Skeleton : MonoBehaviour {
 
 	void FixedUpdate(){
 
+		print (transform.position);
+
 		//turns on the collider off if the mouse gets close enough
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		if (Vector3.Distance(mousePosition, transform.position)<3){ 

@@ -25,7 +25,7 @@ public class controlfreak : MonoBehaviour {
 	
 	void Start () {
 		rigidbody2D.gravityScale = 0; //sets the gravity scale to 0. Gravity will simulated by another method
-		startPoint = Camera.main.ScreenToWorldPoint( new Vector3(Screen.width/2+50*hazardID, Screen.height, 0));
+		startPoint = Camera.main.ScreenToWorldPoint( new Vector3(Screen.width/2+50*hazardID, Screen.height, 0) );
 		offset = player1.transform.position-startPoint;
 		ResetPosition();
 		this.collider2D.enabled = false;

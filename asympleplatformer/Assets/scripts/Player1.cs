@@ -74,6 +74,7 @@ public class Player1 : MonoBehaviour {
 				Application.Quit();
 			}
 
+
 		}
 
 	}
@@ -95,6 +96,9 @@ public class Player1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		//DELETE
+		print (transform.position);
+
 		float right = 0f, left = 0f, up = 0f, turbo = 1.0f, turboY = 1.0f, timeDif;
 		
 		if (Input.GetButton(controls[1])){ //if D is pressed
