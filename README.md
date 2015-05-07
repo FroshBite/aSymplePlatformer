@@ -36,3 +36,6 @@ A simple platformer with a twist of asymmetric multiplayer. Made during the Fall
 * Control trap temporarily flips movement controls for Player 1
 
 * Objects in your control have cooldown timers before they can be used again
+
+#Licence
+[GPL V3](https://github.com/FroshBite/aSymplePlatformer/blob/master/LICENSE)
